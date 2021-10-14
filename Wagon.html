@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <script>
+        function addTask() {
+            const u = document.getElementById("u1");
+            const x = (document.getElementById("t1").value) + ' ';
+            document.getElementById("t1").value = '';
+            if (x == ' ') {
+                alert("Enter valid text");
+            }
+            else {
+                const li = document.createElement('li');
+                const b = document.createElement('button');
+                li.appendChild(document.createTextNode(x));
+                b.appendChild(document.createTextNode('Done'));
+                li.setAttribute('id', c);
+                b.setAttribute('name', c);
+                b.setAttribute('onClick', 'finishTask(this.name)');
+                li.appendChild(b);
+                u.appendChild(li);
+                c += '1';
+            }
+        }
+        function finishTask(name)
+        {
+            const id=name;
+            const y=document.getElementById(id);
+            document.getElementById(id).innerHTML=document.getElementById(id).innerHTML+' - Finished'
+            const b=document.getElementsByName(name);
+            b[0].innerHTML='X';
+            b[0].setAttribute('onClick','removeTask(this.name)')
+            
+
+            
+        }
+        function removeTask(name) {
+            const id=name
+            const z = document.getElementById(id);
+            z.remove();
+        }
+        var c = '1';
+    </script>
+    <style>
+        body {
+            background-color: crimson;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>To-Do List</h1>
+    <center style="color:white; font-size:20px;">
+        <input id='t1' placeholder="Type your task here.."><button onclick="addTask()"
+            style="color:crimson;background-color:black">Add Task</button><br>
+        <ul id="u1">
+        </ul>
+    </cenetr>
+</body>
+
+</html>

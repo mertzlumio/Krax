@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+<head>
+    <script>
+        function adddigits() {
+            var x = document.getElementById("x").value;
+            var s = 0;
+            while (x != 0) {
+                s += x % 10;
+                x = Math.floor(x / 10);
+            }
+            document.getElementById("a").value = s;
+
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1>Addition of Digits</h1><br>
+        Enter the Number <input id="x">
+        <button onclick="adddigits()">Answer</button>
+        <input id="a">
+    </center>
+</body>
+
+</html>
